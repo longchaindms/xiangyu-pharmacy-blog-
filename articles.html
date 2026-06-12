@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>衛教專欄 | 台北士林向宇藥局</title>
+<meta name="description" content="台北士林向宇藥局衛教專欄：由藥師團隊審定的健康生活照護文章，每日更新。">
+<style>
+:root{--p:#0F766E;--p-dark:#115E59;--p-light:#F0FDFA;--p-mid:#14B8A6;--ink:#1F2937;--muted:#6B7280;--border:#E5E7EB;--line:#06C755;--bg:#FFFFFF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;color:var(--ink);line-height:1.85;background:var(--bg)}
+a{text-decoration:none;color:var(--p)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.topbar{background:var(--p-dark);color:#fff;font-size:.82rem}
+.topbar .wrap{display:flex;gap:22px;flex-wrap:wrap;padding:6px 20px}
+.topbar span{opacity:.92}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .mark{width:44px;height:44px;border-radius:50%;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700}
+.brand .name{font-weight:700;font-size:1.1rem;line-height:1.3}
+.brand .name small{display:block;font-weight:400;color:var(--muted);font-size:.7rem;letter-spacing:.06em}
+nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+nav a{color:var(--ink);font-size:.95rem}
+nav a:hover{color:var(--p)}
+.btn{display:inline-block;background:var(--p);color:#fff;font-weight:700;padding:10px 22px;border-radius:8px;font-size:.95rem}
+.btn:hover{background:var(--p-dark);color:#fff}
+.btn.ghost{background:#fff;color:var(--p);border:1.5px solid var(--p)}
+.hero{background:linear-gradient(135deg,var(--p-light),#fff);padding:64px 0 48px;border-bottom:1px solid var(--border)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.badge{display:inline-block;background:var(--p-light);color:var(--p-dark);border:1px solid var(--p-mid);border-radius:999px;font-size:.8rem;font-weight:700;padding:4px 14px;margin-bottom:16px}
+.hero h1{font-size:2.3rem;line-height:1.35;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--p)}
+.hero p{color:var(--muted);max-width:560px;margin-bottom:24px}
+.hero .actions{display:flex;gap:12px;margin-bottom:30px}
+.chips{display:flex;gap:12px;flex-wrap:wrap}
+.chip{background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 16px;font-size:.85rem;font-weight:700;color:var(--p-dark)}
+.pharm-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px;text-align:center;box-shadow:0 8px 24px rgba(15,118,110,.08)}
+.pharm-card .avatar{width:84px;height:84px;border-radius:50%;background:var(--p-light);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;margin:0 auto 14px}
+.pharm-card .photo{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:top;margin:0 auto 14px;display:block;border:4px solid var(--p-light);box-shadow:0 4px 12px rgba(15,118,110,.15)}
+.pharm-card h3{font-size:1.1rem;margin-bottom:4px}
+.pharm-card p{color:var(--muted);font-size:.85rem}
+.section{padding:60px 0}
+.section.alt{background:var(--p-light)}
+.kicker{text-align:center;color:var(--p);font-weight:700;font-size:.9rem;letter-spacing:.1em;margin-bottom:6px}
+.section h2{text-align:center;font-size:1.7rem;margin-bottom:14px}
+.section .lead{text-align:center;color:var(--muted);max-width:720px;margin:0 auto 36px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.fcard{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px}
+.fcard .ico{width:44px;height:44px;border-radius:10px;background:var(--p-light);color:var(--p);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:12px}
+.fcard h3{font-size:1.02rem;margin-bottom:6px}
+.fcard p{color:var(--muted);font-size:.87rem}
+.acards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.acard{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.acard .tagbar{background:var(--p-light);color:var(--p-dark);font-size:.78rem;font-weight:700;padding:8px 18px}
+.acard .inner{padding:20px;display:flex;flex-direction:column;flex:1}
+.acard .meta{color:var(--muted);font-size:.78rem;margin-bottom:8px}
+.acard h3{font-size:1.05rem;line-height:1.5;margin-bottom:10px}
+.acard p{color:var(--muted);font-size:.88rem;flex:1}
+.acard a{font-weight:700;margin-top:14px;font-size:.9rem}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about .text p{color:var(--muted);margin-bottom:14px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.ccard{background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center}
+.ccard .ico{font-size:1.5rem;margin-bottom:8px}
+.ccard h3{font-size:.95rem;margin-bottom:4px}
+.ccard p{color:var(--muted);font-size:.92rem}
+.btn-line{display:inline-block;background:var(--line);color:#fff;font-weight:700;padding:10px 26px;border-radius:999px;font-size:.95rem;margin-top:6px}
+article{max-width:760px;margin:0 auto;padding:46px 20px}
+article h1{font-size:1.6rem;line-height:1.5;margin-bottom:8px}
+article .meta{color:var(--muted);font-size:.85rem;margin-bottom:26px}
+article h2{color:var(--p-dark);font-size:1.2rem;margin:30px 0 10px;text-align:left}
+article p,article li{margin-bottom:12px;color:#374151}
+article ul{padding-left:24px}
+.notice{background:var(--p-light);border-left:5px solid var(--p);padding:14px 18px;margin:24px 0;font-size:.92rem;border-radius:0 8px 8px 0}
+.back{display:inline-block;margin-top:28px;font-weight:700}
+.divider{border:none;border-top:1px solid var(--border);max-width:760px;margin:10px auto}
+footer{background:#134E4A;color:#CBD5D3;padding:48px 0 24px;font-size:.9rem}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:30px;margin-bottom:30px}
+footer h3{color:#fff;font-size:1rem;margin-bottom:12px}
+footer a{color:#CBD5D3;display:block;margin-bottom:6px}
+footer a:hover{color:#fff}
+footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-align:center;font-size:.8rem;color:#9DB4B0}
+@media(max-width:860px){.hero .wrap,.about,footer .cols{grid-template-columns:1fr}.hero h1{font-size:1.8rem}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>📞 02-8866-1101</span>
+    <span>🕘 週一至五 09:00–22:00 · 週六日 10:00–19:00</span>
+    <span>📍 111 台北市士林區德行東路217號1樓</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">宇</div>
+      <div class="name">台北士林向宇藥局<small>Xiangyu Pharmacy</small></div>
+    </div>
+    <nav>
+      <a href="index.html">首頁</a>
+      <a href="index.html#services">服務項目</a>
+      <a href="articles.html">衛教專欄</a>
+      <a href="index.html#about">關於我們</a>
+      <a href="index.html#contact">聯絡我們</a>
+      <a class="btn" href="tel:02-88661101">預約諮詢</a>
+    </nav>
+  </div>
+</header>
+
+<div class="section alt">
+  <div class="wrap">
+    <div class="kicker">健康新知</div>
+    <h2>衛教專欄</h2>
+    <p class="lead">由向宇藥局藥師團隊審定的健康照護文章，每日新增三篇，由新到舊排列。</p>
+  </div>
+</div>
+
+<article id="a-20260612-1">
+<h1>長輩冬病夏治怎麼做才安全？熟齡三伏貼與調理的觀念釐清。</h1>
+<div class="meta">2026年6月12日｜向宇藥局 藥師團隊 審定</div>
+<p>「藥師，我可以去貼三伏貼嗎？」每年入夏，向宇藥局櫃台都會遇到長輩這樣問。冬病夏治是流傳已久的調理觀念，但熟齡族群執行前，建議先把以下幾點弄清楚。</p>
+<h2>先認識三伏貼的本質</h2>
+<p>三伏貼是中醫的穴位敷貼療法，使用溫熱性藥材刺激穴位，屬於醫療行為，一定要由合格中醫師操作，不建議自行購買藥貼使用。</p>
+<h2>熟齡族群的風險評估</h2>
+<ul>
+<li>皮膚較薄、感覺較鈍：灼傷風險高於年輕人，敷貼時間要保守。</li>
+<li>慢性病史：高血壓、糖尿病與服用抗凝血劑者，務必事先告知。</li>
+<li>近期身體狀況：發燒、感染或皮膚有傷口時應暫停。</li>
+</ul>
+<h2>調理不等於停藥</h2>
+<p>最重要的觀念：任何夏季調理都是輔助，原本的慢性病處方藥不能自行停減。把正在使用的藥單帶給藥師看一眼，是最保險的做法。</p>
+<div class="notice">帶著藥單來向宇藥局，藥師免費為長輩確認調理期間的用藥注意事項。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
+<a class="back" href="index.html#articles">‹ 回到首頁</a>
+</article>
+<hr class="divider">
+<article id="a-20260612-2">
+<h1>寶寶吹風一整晚，早上噴嚏連發？嬰幼兒睡眠送風的正確設定。</h1>
+<div class="meta">2026年6月12日｜向宇藥局 藥師團隊 審定</div>
+<p>許多家長發現：寶寶夏天睡冷氣房，一早起床就連打好幾個噴嚏。其實多數情況不是感冒，而是整夜送風的方式需要調整。</p>
+<h2>檢查你家的送風設定</h2>
+<ul>
+<li>出風口別對床：冷氣葉片調向上方，讓冷空氣自然下沉；電扇改吹牆壁製造循環。</li>
+<li>溫度別貪涼：26–28 度最適合，搭配透氣的長袖睡衣。</li>
+<li>善用舒眠模式：後半夜自動回溫，減少清晨的溫差刺激。</li>
+</ul>
+<h2>分辨溫差刺激與感冒</h2>
+<p>溫差型的噴嚏鼻水通常起床後一兩個小時內就緩解；若持續整天、鼻涕變濃稠或有發燒，建議就醫確認。</p>
+<h2>別忘了清潔</h2>
+<p>濾網與扇葉是灰塵大本營，建議每 2–4 週清洗一次；床單枕套每週換洗，給寶寶的鼻子一個乾淨的睡眠環境。</p>
+<div class="notice">寶寶的居家照護問題，歡迎來向宇藥局與藥師聊聊，或來電諮詢：<a href="tel:02-88661101">02-8866-1101</a></div>
+<a class="back" href="index.html#articles">‹ 回到首頁</a>
+</article>
+<hr class="divider">
+<article id="a-20260612-3">
+<h1>運動流汗就抓個不停？學童關節處的清潔與保濕重點。</h1>
+<div class="meta">2026年6月12日｜向宇藥局 藥師團隊 審定</div>
+<p>暑假運動量大增，不少家長帶孩子來向宇藥局，問的都是同一件事：流汗後手肘窩、膝蓋窩癢到不行，怎麼辦？</p>
+<h2>汗水＋摩擦＝皺摺處的敵人</h2>
+<p>關節皺摺處通風差、汗水容易滯留，加上衣物反覆摩擦，皮膚屏障一旦受損，癢感就會反覆出現，越抓越糟。</p>
+<h2>給學童的汗後 SOP</h2>
+<ul>
+<li>運動後盡快用清水沖洗流汗部位，特別是手肘窩與膝蓋窩。</li>
+<li>用毛巾「按壓」吸乾水分，避免大力搓揉。</li>
+<li>趁皮膚微濕時塗上無香精保濕乳液鎖水。</li>
+<li>替換吸汗透氣的棉質衣物，別讓濕衣服貼在身上。</li>
+</ul>
+<h2>需要注意的警訊</h2>
+<p>抓破皮、起水泡或紅疹蔓延時，請就醫評估；選購兒童適用的清潔保濕產品前，也歡迎先諮詢藥師。</p>
+<div class="notice">孩子的皮膚清潔保養品怎麼挑？來向宇藥局讓藥師依膚況建議最合適的選擇。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
+<a class="back" href="index.html#articles">‹ 回到首頁</a>
+</article>
+<hr class="divider">
+<article>
+<h1>夏天腹瀉好崩潰？藥師教你止瀉與電解質補充的正確順序</h1>
+<div class="meta">2026年6月11日｜向宇藥局 藥師團隊 審定</div>
+<p>夏天氣溫高，食物保存不當、生食海鮮、手搖飲冰塊，都可能引起急性腸胃炎。突然腹瀉時，很多人第一個反應是「趕快吃止瀉藥」，但順序其實有學問。</p>
+<h2>第一步：補水比止瀉更重要</h2>
+<ul>
+<li>腹瀉最大的風險是脫水與電解質流失，尤其是幼兒與長輩。</li>
+<li>建議使用藥局的「口服電解質液（ORS）」，成分比例針對腹瀉設計。</li>
+<li>運動飲料糖分偏高、電解質比例不對，只能應急，不建議取代 ORS。</li>
+</ul>
+<h2>第二步：止瀉藥怎麼用？</h2>
+<ul>
+<li>輕度水瀉可短期使用止瀉藥緩解，但若是細菌感染引起，過度止瀉反而把病菌留在腸道。</li>
+<li>合併發燒、血便、劇烈腹痛時，不要自行止瀉，請盡快就醫。</li>
+</ul>
+<h2>飲食怎麼調整？</h2>
+<p>急性期選擇清淡好消化的食物（白粥、吐司、香蕉），避免乳製品、油炸與高糖飲料，待症狀緩解再逐步恢復正常飲食。</p>
+<div class="notice">家中常備口服電解質液與正確的止瀉用藥，歡迎來向宇藥局由藥師依症狀為您建議。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
+<a class="back" href="index.html#articles">‹ 回到首頁</a>
+</article>
+<hr class="divider">
+<article>
+<h1>在家量血壓老是不準？藥師教你「722 原則」正確量法</h1>
+<div class="meta">2026年6月10日｜向宇藥局 藥師團隊 審定</div>
+<p>高血壓病友最常問藥師：「為什麼我在家量的血壓，跟診所量的差那麼多？」其實多數時候不是血壓計壞了，而是量測方式不對。</p>
+<h2>什麼是 722 原則？</h2>
+<ul>
+<li><strong>7</strong>：連續 7 天量測。</li>
+<li><strong>2</strong>：每天量 2 個時段 — 早上起床後 1 小時內（服藥前）與睡前。</li>
+<li><strong>2</strong>：每次量 2 遍，間隔 1 分鐘，取平均值。</li>
+</ul>
+<h2>量測前的小細節</h2>
+<ul>
+<li>量測前 30 分鐘避免咖啡、茶、抽菸與運動。</li>
+<li>坐姿靠背、雙腳平放、手臂與心臟同高，靜坐 5 分鐘再量。</li>
+<li>壓脈帶直接綁在上臂皮膚上，不要隔著厚衣袖。</li>
+</ul>
+<h2>數值怎麼看？</h2>
+<p>居家血壓建議控制在 130/80 mmHg 以下（個別目標請依醫師指示）。把 7 天紀錄帶給醫師或藥師，比單次數值更有參考價值。</p>
+<div class="notice">不確定家中血壓計準不準？帶來向宇藥局，藥師免費協助您校對量測方式與判讀紀錄。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
+<a class="back" href="index.html#articles">‹ 回到首頁</a>
+</article>
+<hr class="divider">
+<article>
+<h1>吃藥配果汁、剝半磨粉？藥師盤點最常見的服藥 NG 行為</h1>
+<div class="meta">2026年6月9日｜向宇藥局 藥師團隊 審定</div>
+<p>藥效好不好，除了藥本身，「怎麼吃」影響也很大。以下是藥師在櫃台最常遇到的 NG 行為，看看你中了幾項。</p>
+<h2>NG 一：用飲料配藥</h2>
+<ul>
+<li><strong>葡萄柚汁</strong>會抑制肝臟代謝酵素，讓部分降血壓藥、降血脂藥血中濃度飆高。</li>
+<li><strong>牛奶</strong>中的鈣會與部分抗生素結合，降低吸收。</li>
+<li><strong>茶與咖啡</strong>可能影響鐵劑與部分藥物吸收。最安全的永遠是白開水。</li>
+</ul>
+<h2>NG 二：自行剝半、磨粉</h2>
+<p>「緩釋」「腸溶」劑型剝半或磨碎，會破壞設計，讓藥量一次釋出，可能造成危險。藥錠太大吞不下，請先詢問藥師有無替代劑型。</p>
+<h2>NG 三：症狀好了就自行停藥</h2>
+<p>抗生素必須吃完整個療程，否則容易產生抗藥性；慢性病用藥更不可自行停藥或減量，調整前請與醫師或藥師討論。</p>
+<div class="notice">對家中任何藥品的吃法有疑問，拍照傳到向宇藥局 LINE 或來電，藥師為您確認。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
+<a class="back" href="index.html#articles">‹ 回到首頁</a>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand" style="margin-bottom:10px"><div class="mark">宇</div><div class="name" style="color:#fff">台北士林向宇藥局</div></div>
+        <p>專業藥師團隊，用心守護您與家人的健康。</p>
+      </div>
+      <div>
+        <h3>快速連結</h3>
+        <a href="index.html#services">服務項目</a>
+        <a href="index.html#about">關於我們</a>
+        <a href="articles.html">衛教專欄</a>
+        <a href="index.html#contact">聯絡我們</a>
+      </div>
+      <div>
+        <h3>服務項目</h3>
+        <a href="index.html#services">處方調劑</a>
+        <a href="index.html#services">慢性處方箋</a>
+        <a href="index.html#services">藥品諮詢</a>
+        <a href="index.html#services">保健食品</a>
+      </div>
+      <div>
+        <h3>聯絡資訊</h3>
+        <a href="tel:02-88661101">02-8866-1101</a>
+        <a href="index.html#contact">111 台北市士林區德行東路217號1樓</a>
+      </div>
+    </div>
+    <div class="copy">© 2026 台北士林向宇藥局. 保留所有權利.｜本站內容為衛教資訊，不能取代醫師診斷與處方。</div>
+  </div>
+</footer>
+</body>
+</html>
