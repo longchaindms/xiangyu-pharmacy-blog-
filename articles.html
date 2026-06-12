@@ -81,18 +81,24 @@ footer h3{color:#fff;font-size:1rem;margin-bottom:12px}
 footer a{color:#CBD5D3;display:block;margin-bottom:6px}
 footer a:hover{color:#fff}
 footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-align:center;font-size:.8rem;color:#9DB4B0}
-.fbar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px}
-.fbar .flabel{font-size:.85rem;color:var(--muted);align-self:center;margin-right:2px}
-.fpill{background:#fff;border:1px solid var(--border);border-radius:999px;padding:6px 16px;font-size:.85rem;color:var(--ink);cursor:pointer}
-.fpill.active{background:var(--p);color:#fff;border-color:var(--p)}
-.fcount{text-align:center;color:var(--muted);font-size:.9rem;margin:6px 0 26px}
-.alist{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;max-width:1120px;margin:0 auto;padding:0 20px 50px}
-.aitem{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;flex-direction:column}
-.aitem .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.aitem .tag{background:var(--p-light);color:var(--p-dark);font-size:.72rem;font-weight:700;border-radius:999px;padding:3px 10px}
-.aitem h3{font-size:1rem;line-height:1.55;flex:1}
-.aitem .meta{color:var(--muted);font-size:.78rem;margin:8px 0}
-.aitem a{font-weight:700;font-size:.9rem}
+.filters{display:flex;gap:12px;flex-wrap:wrap;max-width:1120px;margin:0 auto;padding:6px 20px 4px}
+.filters select{padding:10px 14px;border:1px solid var(--border);border-radius:10px;background:#fff;font-size:.95rem;color:var(--ink);font-family:inherit}
+.filters input{flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--border);border-radius:10px;font-size:.95rem;font-family:inherit;color:var(--ink)}
+.filters input::placeholder{color:#9CA3AF}
+.fcount{max-width:1120px;margin:0 auto;padding:10px 20px 16px;color:var(--muted);font-size:.92rem}
+.alist{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:18px;max-width:1120px;margin:0 auto;padding:0 20px 60px}
+.aitem{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;cursor:pointer;transition:box-shadow .15s}
+.aitem:hover{box-shadow:0 6px 18px rgba(15,118,110,.12)}
+.aitem .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.aitem .tag{font-size:.78rem;font-weight:700;border-radius:999px;padding:3px 12px}
+.tag-s{background:#DCFCE7;color:#15803D}
+.tag-a{background:#DBEAFE;color:#1D4ED8}
+.tag-c{background:#FFEDD5;color:#C2410C}
+.aitem h3{font-size:1.05rem;line-height:1.6}
+.aitem .meta{color:var(--muted);font-size:.78rem;margin-top:10px}
+#readview{display:none}
+#readview .divider{display:none}
+#readview article{display:none}
 @media(max-width:860px){.hero .wrap,.about,footer .cols{grid-template-columns:1fr}.hero h1{font-size:1.8rem}}
 </style>
 </head>
@@ -131,51 +137,49 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-al
   </div>
 </div>
 
-<div class="wrap" style="padding-bottom:10px">
-  <div class="fbar"><span class="flabel">季節</span><button class="fpill active">全部</button><button class="fpill">夏季</button></div>
-  <div class="fbar" data-key="age"><span class="flabel">年齡層</span><button class="fpill active">全部</button><button class="fpill">嬰幼兒（0–6 歲）</button><button class="fpill">學齡兒（7–12 歲）</button><button class="fpill">青少年（13–18 歲）</button><button class="fpill">青壯年（19–64 歲）</button><button class="fpill">老年（65 歲+）</button></div>
-  <div class="fbar" data-key="cause"><span class="flabel">主要成因</span><button class="fpill active">全部</button><button class="fpill">冷氣溫差</button><button class="fpill">飲食冰涼</button><button class="fpill">泳池/海邊戲水</button><button class="fpill">汗水悶熱</button><button class="fpill">紫外線日曬</button><button class="fpill">夏季生活照護</button><button class="fpill">濕熱黴菌塵螨</button></div>
-  <div class="fcount" id="fcount">目前共 6 篇</div>
+<div id="listview">
+<div class="filters">
+  <select id="f-season"><option>全部</option><option>夏季</option></select>
+  <select id="f-age"><option>全部</option><option>嬰幼兒（0–6 歲）</option><option>學齡兒（7–12 歲）</option><option>青少年（13–18 歲）</option><option>青壯年（19–64 歲）</option><option>老年（65 歲+）</option></select>
+  <select id="f-cause"><option>全部</option><option>冷氣溫差</option><option>飲食冰涼</option><option>泳池/海邊戲水</option><option>汗水悶熱</option><option>紫外線日曬</option><option>夏季生活照護</option><option>濕熱黴菌塵螨</option></select>
+  <input id="f-q" type="text" placeholder="搜尋標題…">
 </div>
+<div class="fcount" id="fcount">目前共 6 篇</div>
 <div class="alist">
-  <div class="aitem" data-age="老年（65 歲+）" data-cause="夏季生活照護">
-    <div class="tags"><span class="tag">夏季</span><span class="tag">老年（65 歲+）</span><span class="tag">夏季生活照護</span></div>
+  <div class="aitem" data-target="a-20260612-1" data-age="老年（65 歲+）" data-cause="夏季生活照護" data-title="長輩冬病夏治怎麼做才安全？熟齡三伏貼與調理的觀念釐清。">
+    <div class="tags"><span class="tag tag-s">夏季</span><span class="tag tag-a">老年（65 歲+）</span><span class="tag tag-c">夏季生活照護</span></div>
     <h3>長輩冬病夏治怎麼做才安全？熟齡三伏貼與調理的觀念釐清。</h3>
     <div class="meta">2026年6月12日</div>
-    <a href="#a-20260612-1">閱讀全文 →</a>
   </div>
-  <div class="aitem" data-age="嬰幼兒（0–6 歲）" data-cause="冷氣溫差">
-    <div class="tags"><span class="tag">夏季</span><span class="tag">嬰幼兒（0–6 歲）</span><span class="tag">冷氣溫差</span></div>
+  <div class="aitem" data-target="a-20260612-2" data-age="嬰幼兒（0–6 歲）" data-cause="冷氣溫差" data-title="寶寶吹風一整晚，早上噴嚏連發？嬰幼兒睡眠送風的正確設定。">
+    <div class="tags"><span class="tag tag-s">夏季</span><span class="tag tag-a">嬰幼兒（0–6 歲）</span><span class="tag tag-c">冷氣溫差</span></div>
     <h3>寶寶吹風一整晚，早上噴嚏連發？嬰幼兒睡眠送風的正確設定。</h3>
     <div class="meta">2026年6月12日</div>
-    <a href="#a-20260612-2">閱讀全文 →</a>
   </div>
-  <div class="aitem" data-age="學齡兒（7–12 歲）" data-cause="汗水悶熱">
-    <div class="tags"><span class="tag">夏季</span><span class="tag">學齡兒（7–12 歲）</span><span class="tag">汗水悶熱</span></div>
+  <div class="aitem" data-target="a-20260612-3" data-age="學齡兒（7–12 歲）" data-cause="汗水悶熱" data-title="運動流汗就抓個不停？學童關節處的清潔與保濕重點。">
+    <div class="tags"><span class="tag tag-s">夏季</span><span class="tag tag-a">學齡兒（7–12 歲）</span><span class="tag tag-c">汗水悶熱</span></div>
     <h3>運動流汗就抓個不停？學童關節處的清潔與保濕重點。</h3>
     <div class="meta">2026年6月12日</div>
-    <a href="#a-20260612-3">閱讀全文 →</a>
   </div>
-  <div class="aitem" data-age="青壯年（19–64 歲）" data-cause="飲食冰涼">
-    <div class="tags"><span class="tag">夏季</span><span class="tag">青壯年（19–64 歲）</span><span class="tag">飲食冰涼</span></div>
+  <div class="aitem" data-target="a-old-1" data-age="青壯年（19–64 歲）" data-cause="飲食冰涼" data-title="夏天腹瀉好崩潰？藥師教你止瀉與電解質補充的正確順序">
+    <div class="tags"><span class="tag tag-s">夏季</span><span class="tag tag-a">青壯年（19–64 歲）</span><span class="tag tag-c">飲食冰涼</span></div>
     <h3>夏天腹瀉好崩潰？藥師教你止瀉與電解質補充的正確順序</h3>
     <div class="meta">2026年6月11日</div>
-    <a href="#a-old-1">閱讀全文 →</a>
   </div>
-  <div class="aitem" data-age="老年（65 歲+）" data-cause="夏季生活照護">
-    <div class="tags"><span class="tag">夏季</span><span class="tag">老年（65 歲+）</span><span class="tag">夏季生活照護</span></div>
+  <div class="aitem" data-target="a-old-2" data-age="老年（65 歲+）" data-cause="夏季生活照護" data-title="在家量血壓老是不準？藥師教你「722 原則」正確量法">
+    <div class="tags"><span class="tag tag-s">夏季</span><span class="tag tag-a">老年（65 歲+）</span><span class="tag tag-c">夏季生活照護</span></div>
     <h3>在家量血壓老是不準？藥師教你「722 原則」正確量法</h3>
     <div class="meta">2026年6月10日</div>
-    <a href="#a-old-2">閱讀全文 →</a>
   </div>
-  <div class="aitem" data-age="青壯年（19–64 歲）" data-cause="夏季生活照護">
-    <div class="tags"><span class="tag">夏季</span><span class="tag">青壯年（19–64 歲）</span><span class="tag">夏季生活照護</span></div>
+  <div class="aitem" data-target="a-old-3" data-age="青壯年（19–64 歲）" data-cause="夏季生活照護" data-title="吃藥配果汁、剝半磨粉？藥師盤點最常見的服藥 NG 行為">
+    <div class="tags"><span class="tag tag-s">夏季</span><span class="tag tag-a">青壯年（19–64 歲）</span><span class="tag tag-c">夏季生活照護</span></div>
     <h3>吃藥配果汁、剝半磨粉？藥師盤點最常見的服藥 NG 行為</h3>
     <div class="meta">2026年6月9日</div>
-    <a href="#a-old-3">閱讀全文 →</a>
   </div>
 </div>
+</div>
 
+<div id="readview">
 <article id="a-20260612-1">
 <h1>長輩冬病夏治怎麼做才安全？熟齡三伏貼與調理的觀念釐清。</h1>
 <div class="meta">2026年6月12日｜向宇藥局 藥師團隊 審定</div>
@@ -191,7 +195,7 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-al
 <h2>調理不等於停藥</h2>
 <p>最重要的觀念：任何夏季調理都是輔助，原本的慢性病處方藥不能自行停減。把正在使用的藥單帶給藥師看一眼，是最保險的做法。</p>
 <div class="notice">帶著藥單來向宇藥局，藥師免費為長輩確認調理期間的用藥注意事項。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
-<a class="back" href="index.html#articles">‹ 回到首頁</a>
+<a class="back backlist" href="#">‹ 回到文章列表</a>
 </article>
 <hr class="divider">
 <article id="a-20260612-2">
@@ -209,7 +213,7 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-al
 <h2>別忘了清潔</h2>
 <p>濾網與扇葉是灰塵大本營，建議每 2–4 週清洗一次；床單枕套每週換洗，給寶寶的鼻子一個乾淨的睡眠環境。</p>
 <div class="notice">寶寶的居家照護問題，歡迎來向宇藥局與藥師聊聊，或來電諮詢：<a href="tel:02-88661101">02-8866-1101</a></div>
-<a class="back" href="index.html#articles">‹ 回到首頁</a>
+<a class="back backlist" href="#">‹ 回到文章列表</a>
 </article>
 <hr class="divider">
 <article id="a-20260612-3">
@@ -228,7 +232,7 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-al
 <h2>需要注意的警訊</h2>
 <p>抓破皮、起水泡或紅疹蔓延時，請就醫評估；選購兒童適用的清潔保濕產品前，也歡迎先諮詢藥師。</p>
 <div class="notice">孩子的皮膚清潔保養品怎麼挑？來向宇藥局讓藥師依膚況建議最合適的選擇。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
-<a class="back" href="index.html#articles">‹ 回到首頁</a>
+<a class="back backlist" href="#">‹ 回到文章列表</a>
 </article>
 <hr class="divider">
 <article id="a-old-1">
@@ -249,7 +253,7 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-al
 <h2>飲食怎麼調整？</h2>
 <p>急性期選擇清淡好消化的食物（白粥、吐司、香蕉），避免乳製品、油炸與高糖飲料，待症狀緩解再逐步恢復正常飲食。</p>
 <div class="notice">家中常備口服電解質液與正確的止瀉用藥，歡迎來向宇藥局由藥師依症狀為您建議。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
-<a class="back" href="index.html#articles">‹ 回到首頁</a>
+<a class="back backlist" href="#">‹ 回到文章列表</a>
 </article>
 <hr class="divider">
 <article id="a-old-2">
@@ -271,7 +275,7 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-al
 <h2>數值怎麼看？</h2>
 <p>居家血壓建議控制在 130/80 mmHg 以下（個別目標請依醫師指示）。把 7 天紀錄帶給醫師或藥師，比單次數值更有參考價值。</p>
 <div class="notice">不確定家中血壓計準不準？帶來向宇藥局，藥師免費協助您校對量測方式與判讀紀錄。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
-<a class="back" href="index.html#articles">‹ 回到首頁</a>
+<a class="back backlist" href="#">‹ 回到文章列表</a>
 </article>
 <hr class="divider">
 <article id="a-old-3">
@@ -289,8 +293,9 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-al
 <h2>NG 三：症狀好了就自行停藥</h2>
 <p>抗生素必須吃完整個療程，否則容易產生抗藥性；慢性病用藥更不可自行停藥或減量，調整前請與醫師或藥師討論。</p>
 <div class="notice">對家中任何藥品的吃法有疑問，拍照傳到向宇藥局 LINE 或來電，藥師為您確認。電話：<a href="tel:02-88661101">02-8866-1101</a></div>
-<a class="back" href="index.html#articles">‹ 回到首頁</a>
+<a class="back backlist" href="#">‹ 回到文章列表</a>
 </article>
+</div>
 
 <footer>
   <div class="wrap">
@@ -324,24 +329,46 @@ footer .copy{border-top:1px solid rgba(255,255,255,.15);padding-top:18px;text-al
 </footer>
 <script>
 (function(){
-  var state={age:'全部',cause:'全部'};
+  var listview=document.getElementById('listview');
+  var readview=document.getElementById('readview');
+  var selSeason=document.getElementById('f-season');
+  var selAge=document.getElementById('f-age');
+  var selCause=document.getElementById('f-cause');
+  var q=document.getElementById('f-q');
   function apply(){
-    var items=document.querySelectorAll('.aitem');var n=0;
-    items.forEach(function(el){
-      var ok=(state.age==='全部'||el.dataset.age===state.age)&&(state.cause==='全部'||el.dataset.cause===state.cause);
+    var n=0;
+    document.querySelectorAll('.aitem').forEach(function(el){
+      var ok=(selAge.value==='全部'||el.dataset.age===selAge.value)
+        &&(selCause.value==='全部'||el.dataset.cause===selCause.value)
+        &&(q.value.trim()===''||el.dataset.title.indexOf(q.value.trim())>-1);
       el.style.display=ok?'':'none'; if(ok)n++;
     });
     document.getElementById('fcount').textContent='目前共 '+n+' 篇';
   }
-  document.querySelectorAll('.fbar').forEach(function(bar){
-    var key=bar.dataset.key; if(!key)return;
-    bar.querySelectorAll('.fpill').forEach(function(p){
-      p.addEventListener('click',function(){
-        bar.querySelectorAll('.fpill').forEach(function(q){q.classList.remove('active')});
-        p.classList.add('active'); state[key]=p.textContent.trim(); apply();
-      });
-    });
+  [selSeason,selAge,selCause].forEach(function(s){s.addEventListener('change',apply)});
+  q.addEventListener('input',apply);
+  function openArticle(id){
+    var t=document.getElementById(id);
+    if(!t)return;
+    listview.style.display='none';
+    readview.style.display='block';
+    readview.querySelectorAll('article').forEach(function(a){a.style.display='none'});
+    t.style.display='block';
+    window.scrollTo(0,0);
+  }
+  function backToList(){
+    readview.style.display='none';
+    listview.style.display='block';
+    window.scrollTo(0,0);
+    if(history.replaceState)history.replaceState(null,'',location.pathname);
+  }
+  document.querySelectorAll('.aitem').forEach(function(el){
+    el.addEventListener('click',function(){openArticle(el.dataset.target)});
   });
+  document.querySelectorAll('.backlist').forEach(function(b){
+    b.addEventListener('click',function(e){e.preventDefault();backToList()});
+  });
+  if(location.hash){var id=location.hash.slice(1);if(document.getElementById(id))openArticle(id);}
   apply();
 })();
 </script>
