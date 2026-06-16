@@ -71,7 +71,7 @@ export function Hero() {
           <div style={rise(0.22)} className="flex justify-center lg:justify-end">
             <div className="w-full max-w-sm rounded-3xl border border-border/60 bg-card/80 backdrop-blur shadow-2xl shadow-primary/10 p-8 text-center">
               <div className="mx-auto h-[200px] w-[200px] overflow-hidden rounded-2xl ring-4 ring-primary/10 shadow-lg">
-                <div className="flex h-full w-full items-center justify-center bg-primary/10 text-primary font-bold text-[110px] leading-none">宇</div>
+                <img src="/pharmacist.jpg" alt="向宇藥局 執業藥師團隊" className="h-full w-full object-cover" />
               </div>
               <p className="mt-6 text-sm font-medium text-primary">執業藥師</p>
               <p className="text-2xl font-bold tracking-tight text-foreground">藥師團隊</p>
